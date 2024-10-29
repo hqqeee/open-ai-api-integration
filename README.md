@@ -3,7 +3,18 @@
 A simple WebSocket server that communicates with the OpenAI API.
 
 
-Set-up
+## Set-up
+```shell
 python -m venv venv
-Linux: source venv/bin/activate // Windows: venv\Scripts\activate
+```
+Linux: 
+```shell
+source venv/bin/activate
+```
+Windows: 
+```shell
+venv\Scripts\activate
+```
+```shell
 pip install -r requirements.txt
+```
