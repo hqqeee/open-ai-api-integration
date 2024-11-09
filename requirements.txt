@@ -1,3 +1,4 @@
-websockets
 openai
 python-dotenv
+flask
+flask_socketio
