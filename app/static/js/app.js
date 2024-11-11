@@ -32,7 +32,6 @@ function addOutgoingMessage(message) {
     outgoingMessage.appendChild(avatar);
     messagesContainer.appendChild(outgoingMessage);
     console.log(message)
-    // Scroll to the bottom of the chat box
     messagesContainer.scrollTop = messagesContainer.scrollHeight;
 }
 
@@ -59,6 +58,5 @@ function addIncomingMessage(message) {
     incomingMessage.appendChild(messageBox);
     messagesContainer.appendChild(incomingMessage);
     console.log(message)
-    // Scroll to the bottom of the chat box
     messagesContainer.scrollTop = messagesContainer.scrollHeight;
 }

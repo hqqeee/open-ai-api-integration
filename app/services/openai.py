@@ -15,7 +15,7 @@ class OpenAIClient:
             cls._instance.client = OpenAI(api_key=current_app.config['OPENAI_API_KEY'])
         return cls._instance
 
-    def get_openai_response(self, question):
+    def _get_openai_response(self, question):
         try:
             response = self.client.chat.completions.create(
                 messages=[
@@ -31,8 +31,9 @@ class OpenAIClient:
         except Exception as e:
             return f"Error: {str(e)}"
 
-    def _get_openai_response(self, question, session_key):
+    def get_openai_response(self, question, session_key):
         try:
+            print(self._sessions[session_key])
             conversation_history = self._sessions[session_key]
             conversation_history.append({"role": "user", "content": question})
             response = self._get_openai_response(json.dumps(conversation_history))
@@ -40,3 +41,10 @@ class OpenAIClient:
             return response
         except Exception as e:
             return f"Error: {str(e)}"
+
+    def close_session(self, session_key):
+        del self._sessions[session_key]
+
+    def open_session(self, session_key):
+        self._sessions[session_key] = []
+
