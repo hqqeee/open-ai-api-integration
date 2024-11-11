@@ -1,10 +1,12 @@
 from flask_socketio import emit
-from . import socketio
-from .services.openai import OpenAIClient
-
-openAiClient = OpenAIClient()
+from .extentions import socketio
+from . import open_ai_client
 
 @socketio.on('chat')
 def handle_chat(message):
-    response = openAiClient.get_openai_response(message)
+    print(message)
+    response = open_ai_client.get_openai_response(message)
     emit('chat_response', response)
+
+
+

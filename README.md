@@ -19,5 +19,10 @@ venv\Scripts\activate
 ```
 * Install required packages
 ```shell
-pip install -r requirements.txt
+pip install .
 ```
+* Run server
+```shell
+
+```
+

@@ -1,18 +1,17 @@
-from flask import Flask, current_app
-from .config import Config
-from flask_socketio import SocketIO
+from flask import Flask
 from .services.openai import OpenAIClient
+from .config import Config
+from .extentions import socketio
 
-socketio = SocketIO()
+app = Flask(__name__)
+app.config.from_object(Config)
+with app.app_context():
+    open_ai_client = OpenAIClient()
+socketio.init_app(app)
+from .routes import main
+app.register_blueprint(main)
+
+from .socket_events import handle_chat
 
 def create_app():
-    app = Flask(__name__)
-    app.config.from_object(Config)
-    with app.app_context():
-        socketio.init_app(app)
-        from .socket_events import handle_chat
-
-    from .routes import main
-    app.register_blueprint(main)
-
     return app

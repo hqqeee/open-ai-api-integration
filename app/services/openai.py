@@ -35,7 +35,7 @@ class OpenAIClient:
         try:
             conversation_history = self._sessions[session_key]
             conversation_history.append({"role": "user", "content": question})
-            response = self.get_openai_response(json.dumps(conversation_history))
+            response = self._get_openai_response(json.dumps(conversation_history))
             conversation_history.append({"role": "assistant", "content": response})
             return response
         except Exception as e:

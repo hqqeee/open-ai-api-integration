@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "open-ai-integration"
+version = "0.1.0"
+description = "OpenAI Integration Flask/SocketIO example"
+authors = ["Hrebenozhko Ruslan <hrebenozhko@yahoo.com>"]
+readme = "README.md"
+package-mode = false
+packages = [
+    { include = "app" }
+]
+
+[tool.poetry.dependencies]
+python = "^3.12"
+openai = "^1.54.3"
+python-dotenv = "^1.0.1"
+flask = "^3.0.3"
+flask-socketio = "^5.4.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+start-server= "app.run:start_server"
