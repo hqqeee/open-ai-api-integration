@@ -1,28 +1,16 @@
-# OpenAI WebSocket App
+ OpenAI WebSocket App
 
-A simple WebSocket server that communicates with the OpenAI API.
+A simple WebSocket server built with Flask and Flask-SocketIO that communicates with the OpenAI API.
 
+## Set-up Instructions
 
-## Set-up
-* Create venv
+### 1. Install Poetry
+[Poetry Installation](https://python-poetry.org/docs/#installation)
+### 2. Install libraries
 ```shell
-python -m venv venv
+poetry install
 ```
-* Activate venv
-Linux: 
-```shell
-source venv/bin/activate
+### 3. Run server
 ```
-Windows: 
-```shell
-venv\Scripts\activate
+poetry run start-server
 ```
-* Install required packages
-```shell
-pip install .
-```
-* Run server
-```shell
-
-```
-
