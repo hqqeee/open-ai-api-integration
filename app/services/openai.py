@@ -25,6 +25,8 @@ class OpenAIClient:
                     }
                 ],
                 model=current_app.config['OPENAI_MODEL'],
+                temperature=current_app.config['OPENAI_TEMPERATURE'],
+                max_tokens=current_app.config['OPENAI_MAX_TOKENS'],
             )
             api_answer = response.choices[0].message.content
             return api_answer
