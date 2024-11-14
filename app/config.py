@@ -8,3 +8,4 @@ class Config:
     OPENAI_MODEL = 'gpt-4o-mini'
     OPENAI_TEMPERATURE = 0.5
     OPENAI_MAX_TOKENS = 100
+    TIKTOKEN_ENCODING = 'o200k_base'
